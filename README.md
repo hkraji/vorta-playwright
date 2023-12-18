@@ -16,34 +16,33 @@ cp .env.example .env
 
 Setup the URL, USERNAME and PASSWORD
 
-### Run the tessts
+### Run the tests
 
 ```
 npm run test
 ```
 
+### Useful tips
+
+If you want to run only one test case use keyword only `.only` for an example
+
+```
+test.only('create new customer', async ({ page }) => {
+  const customer = new Customer(page);
+  await customer.create();
+});
+```
+
 ### Other options
 
-Inside that directory, you can run several commands:
+Run with UI mode
 
-  npx playwright test
-    Runs the end-to-end tests.
+```
+npx playwright test --ui
+```
 
-  npx playwright test --ui
-    Starts the interactive UI mode.
+Run with debug mode
 
-  npx playwright test --project=chromium
-    Runs the tests only on Desktop Chrome.
-
-  npx playwright test example
-    Runs the tests in a specific file.
-
-  npx playwright test --debug
-    Runs the tests in debug mode.
-
-  npx playwright codegen
-    Auto generate tests with Codegen.
-
-We suggest that you begin by typing:
-
-    npx playwright test
+```
+npx playwright test --debug
+```
