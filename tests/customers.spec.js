@@ -18,7 +18,7 @@ test('click add new customer', async ({ page }) => {
   expect(title).toBe('New Customer');
 });
 
-test.only('create new customer', async ({ page }) => {
+test('create new customer', async ({ page }) => {
   const customer = new Customer(page);
   await customer.create();
 });

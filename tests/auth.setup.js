@@ -3,9 +3,11 @@ import { test as setup, expect } from '@playwright/test';
 const authFile = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({ page }) => {
+   page.setDefaultTimeout(process.env.TIMEOUT); // Timeout in milliseconds
+
   // Perform authentication steps. Replace these actions with your own.
   await page.goto(process.env.URL);
-  await page.getByLabel('Email').fill(process.env.USERNAME);
+  await page.getByLabel('Email').fill(process.env.EMAIL);
   await page.getByLabel('Password').fill(process.env.PASSWORD);
   await page.getByRole('button', { name: 'Log in' }).click();
   // Wait until the page receives the cookies.
