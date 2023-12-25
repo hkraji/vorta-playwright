@@ -41,15 +41,16 @@ export class Customer {
     await this.page.locator('svg.add-small-button path').nth(0).click();
 
 
-    await this.page.getByPlaceholder('Search address').click();
-    await this.page.getByLabel('* Country').selectOption('Bosnia and Herzegovina');
-    await this.page.getByPlaceholder('Enter a city').click();
+    // Customer Basic data
+    await this.page.getByLabel('* Country').selectOption('Bosnia and Herzegovina'); 
+
+    // City data 
     await this.page.getByPlaceholder('Enter a city').fill('Sarajevo');
     await this.page.getByPlaceholder('Enter zip code').click();
     await this.page.getByPlaceholder('Enter zip code').fill('71000');
-    await this.page.getByPlaceholder('Enter address 1').click();
+
+    // Customer Address data 
     await this.page.getByPlaceholder('Enter address 1').fill('Address1');
-    await this.page.getByPlaceholder('Enter street number').click();
     await this.page.getByPlaceholder('Enter street number').fill('13');
 
     await this.page.getByRole('button', { name: 'Save' }).click();
@@ -59,4 +60,14 @@ export class Customer {
 
     console.log("End of the test")
   }
+
+  // async editCustomer() {
+  //   await this.page.goto(process.env.URL + 'customers');
+
+  //   await this.page.getByPlaceholder('Search for a customer').click();
+  //   await this.page.getByPlaceholder('Search for a customer').fill('VRT');
+  //   await this.page.locator('button').nth(1).click();
+  //   await this.page.locator('.DTFC_RightBodyLiner > .ts-datatable > tbody > .odd > .action > .actions-container > .expand').click();
+  //   await this.page.locator('a').filter({ hasText: 'EDIT' }).nth(1).click();
+  // }
 }
