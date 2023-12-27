@@ -3,7 +3,6 @@ import { test as setup, expect } from '@playwright/test';
 const authFile = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({ page }) => {
-   page.setDefaultTimeout(process.env.TIMEOUT); // Timeout in milliseconds
 
   // Perform authentication steps. Replace these actions with your own.
   await page.goto(process.env.URL);

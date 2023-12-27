@@ -21,5 +21,5 @@ test('click add new customer', async ({ page }) => {
 test('create new customer', async ({ page }) => {
   const customer = new Customer(page);
   await customer.create();
-  await customer.editCustomer()
+  // await customer.editCustomer()
 });

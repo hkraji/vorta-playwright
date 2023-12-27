@@ -7,7 +7,6 @@ export class Customer {
   async create() {
     await this.page.goto(process.env.URL + 'customers/new');
 
-
     await this.page.getByLabel('Company name').fill("Vorta Test");
     await this.page.getByLabel('Customer brand name').fill("VRT Brand");
     await this.page.getByLabel('Abbreviation').fill("VRT Brand");
@@ -15,12 +14,7 @@ export class Customer {
     await this.page.getByLabel('VAT number').fill("123444444222");
 
     await this.page.getByLabel('Contract delivery week').fill("2");
-
-
-
     await this.page.getByLabel('Customer brand name').fill("VRT Brand");
-
-
 
     await this.page.getByLabel('Incoterms').selectOption('DAP');
     await this.page.getByLabel('* Due date').click();
@@ -34,12 +28,11 @@ export class Customer {
     await this.page.getByText('Select price lists').click();
     await this.page.locator('li').filter({ hasText: 'Gazzda - Mobel Pfister DAP prices - 2021 - EUR (Gazzda)' }).locator('i').click();
 
+    // Save address information
     await this.page.getByRole('button', { name: 'Save' }).click();
-
     await this.page.getByRole('link', { name: 'Address & Contact' }).click();
 
     await this.page.locator('svg.add-small-button path').nth(0).click();
-
 
     // Customer Basic data
     await this.page.getByLabel('* Country').selectOption('Bosnia and Herzegovina'); 
@@ -54,8 +47,6 @@ export class Customer {
     await this.page.getByPlaceholder('Enter street number').fill('13');
 
     await this.page.getByRole('button', { name: 'Save' }).click();
-
-
     await this.page.pause()
 
     console.log("End of the test")

@@ -12,6 +12,7 @@ require('dotenv').config();
  */
 module.exports = defineConfig({
   testDir: './tests',
+  timeout: process.env.TIMEOUT ? Number(process.env.TIMEOUT) : 30000,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
