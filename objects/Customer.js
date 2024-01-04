@@ -52,13 +52,20 @@ export class Customer {
     console.log("End of the test")
   }
 
-  // async editCustomer() {
-  //   await this.page.goto(process.env.URL + 'customers');
+  async editCustomer() {
+    await this.page.goto(process.env.URL + 'customers');
 
-  //   await this.page.getByPlaceholder('Search for a customer').click();
-  //   await this.page.getByPlaceholder('Search for a customer').fill('VRT');
-  //   await this.page.locator('button').nth(1).click();
-  //   await this.page.locator('.DTFC_RightBodyLiner > .ts-datatable > tbody > .odd > .action > .actions-container > .expand').click();
-  //   await this.page.locator('a').filter({ hasText: 'EDIT' }).nth(1).click();
-  // }
+    await this.page.getByPlaceholder('Search for a customer').click();
+    await this.page.getByPlaceholder('Search for a customer').fill('VRT');
+    await this.page.locator('button').nth(1).click();
+    await this.page.locator('.DTFC_RightBodyLiner > .ts-datatable > tbody > .odd > .action > .actions-container > .expand').click();
+    await this.page.locator('a').filter({ hasText: 'EDIT' }).nth(1).click();
+
+    // Edit name to "Vorta test Edit"
+
+    await this.page.getByLabel('Company name').fill("Vorta Test Edit");
+    await this.page.getByRole('button', { name: 'Save' }).click();
+
+    await this.page.pause()
+  }
 }
